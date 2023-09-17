@@ -17,7 +17,18 @@ public class KafkaProducerExample {
         Producer<String, String> producer = new KafkaProducer<>(properties);
 
         // Sample message in JSON format with an actual timestamp
-        String sampleMessage = "{\"sessionId\": \"asfpa-asdf-asdfa\", \"machineId\": \"2343-asdf-fads\", \"startAt\": \"2023-09-16T12:00:00Z\"}";
+        //String sampleMessage = "{\"sessionId\": \"asfpa-asdf-asdfa\", \"machineId\": \"2343-asdf-fads\", \"startAt\": \"2023-09-16T12:00:00Z\"}";
+
+        String sampleMessage = "{\n" +
+                "    \"sessionId\": \"asfpa-asdf-asdfa\",\n" +
+                "    \"events\": [\n" +
+                "        {\n" +
+                "            \"eventAt\": \"1684327792\",\n" +
+                "            \"eventType\": \"drivenDistance\",\n" +
+                "            \"numericEventValue\": 500.00\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}";
 
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, sampleMessage);
 

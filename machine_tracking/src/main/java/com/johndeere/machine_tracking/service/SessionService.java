@@ -1,5 +1,6 @@
 package com.johndeere.machine_tracking.service;
 
+import com.johndeere.machine_tracking.model.Event;
 import com.johndeere.machine_tracking.model.MachineSession;
 import com.johndeere.machine_tracking.repository.MachineSessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

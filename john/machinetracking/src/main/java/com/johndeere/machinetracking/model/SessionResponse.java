@@ -1,19 +1,24 @@
-package com.johndeere.machine_tracking.model;
+package com.johndeere.machinetracking.model;
 
 import java.time.Instant;
 
-public class MachineStartMessage {
+public class SessionResponse {
+
     private String sessionId;
     private String machineId;
     private Instant startAt;
+    private Instant endAt;
+    private double totalNumericEventValue;
 
-    public MachineStartMessage() {
+    public SessionResponse() {
+        // Default constructor
     }
 
-    public MachineStartMessage(String sessionId, String machineId, Instant startAt) {
+    public SessionResponse(String sessionId, String machineId, Instant startAt, Instant endAt) {
         this.sessionId = sessionId;
         this.machineId = machineId;
         this.startAt = startAt;
+        this.endAt = endAt;
     }
 
     public String getSessionId() {
@@ -39,4 +44,18 @@ public class MachineStartMessage {
     public void setStartAt(Instant startAt) {
         this.startAt = startAt;
     }
+
+    public Instant getEndAt() {
+        return endAt;
+    }
+
+    public void setEndAt(Instant endAt) {
+        this.endAt = endAt;
+    }
+
+    public void setTotalNumericEventValue(double totalNumericEventValue) {
+        this.totalNumericEventValue = totalNumericEventValue;
+    }
+
+
 }

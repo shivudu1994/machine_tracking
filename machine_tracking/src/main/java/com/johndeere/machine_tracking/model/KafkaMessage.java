@@ -1,14 +1,13 @@
 package com.johndeere.machine_tracking.model;
 
 import java.time.Instant;
+import java.util.List;
 
 public class KafkaMessage {
     private String sessionId;
     private String machineId;
     private Instant startAt;
-    private Instant eventAt; // Single event timestamp
-    private String eventType;
-    private double numericEventValue;
+    private List<Event> events; // List of events
 
     public KafkaMessage() {
     }
@@ -37,27 +36,11 @@ public class KafkaMessage {
         this.startAt = startAt;
     }
 
-    public Instant getEventAt() {
-        return eventAt;
+    public List<Event> getEvents() {
+        return events;
     }
 
-    public void setEventAt(Instant eventAt) {
-        this.eventAt = eventAt;
-    }
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public double getNumericEventValue() {
-        return numericEventValue;
-    }
-
-    public void setNumericEventValue(double numericEventValue) {
-        this.numericEventValue = numericEventValue;
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 }

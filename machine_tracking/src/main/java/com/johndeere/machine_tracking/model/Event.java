@@ -1,11 +1,10 @@
 package com.johndeere.machine_tracking.model;
 
-
 import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "events_data")
+@Table(name = "events_data") // Specify the table name
 public class Event {
 
     @Id
@@ -13,9 +12,8 @@ public class Event {
     @Column(name = "event_id")
     private Long eventId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "session_id", nullable = false)
-    private SessionEvent session;
+    @Column(name = "session_id", nullable = false)
+    private String sessionId;
 
     @Column(name = "event_at", nullable = false)
     private Instant eventAt;
@@ -26,6 +24,16 @@ public class Event {
     @Column(name = "numeric_event_value", nullable = false)
     private double numericEventValue;
 
+    public Event() {
+    }
+
+    public Event(String sessionId, Instant eventAt, String eventType, double numericEventValue) {
+        this.sessionId = sessionId;
+        this.eventAt = eventAt;
+        this.eventType = eventType;
+        this.numericEventValue = numericEventValue;
+    }
+
     public Long getEventId() {
         return eventId;
     }
@@ -34,12 +42,12 @@ public class Event {
         this.eventId = eventId;
     }
 
-    public SessionEvent getSession() {
-        return session;
+    public String getSessionId() {
+        return sessionId;
     }
 
-    public void setSession(SessionEvent session) {
-        this.session = session;
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 
     public Instant getEventAt() {

@@ -23,9 +23,9 @@ public class KafkaProducerExample {
                 "    \"sessionId\": \"asfpa-asdf-asdfa\",\n" +
                 "    \"events\": [\n" +
                 "        {\n" +
-                "            \"eventAt\": \"1684327792\",\n" +
+                "            \"eventAt\": \"1684327791\",\n" +
                 "            \"eventType\": \"drivenDistance\",\n" +
-                "            \"numericEventValue\": 500.00\n" +
+                "            \"numericEventValue\": 57.00\n" +
                 "        }\n" +
                 "    ]\n" +
                 "}";

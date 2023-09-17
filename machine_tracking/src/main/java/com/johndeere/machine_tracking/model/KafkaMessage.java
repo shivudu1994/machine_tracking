@@ -4,20 +4,13 @@ import java.time.Instant;
 
 public class KafkaMessage {
     private String sessionId;
-    private Instant eventAt;
+    private String machineId;
+    private Instant startAt;
+    private Instant eventAt; // Single event timestamp
     private String eventType;
     private double numericEventValue;
-    private MachineStartMessage machineStartMessage;
 
     public KafkaMessage() {
-    }
-
-    public KafkaMessage(String sessionId, Instant eventAt, String eventType, double numericEventValue, MachineStartMessage machineStartMessage) {
-        this.sessionId = sessionId;
-        this.eventAt = eventAt;
-        this.eventType = eventType;
-        this.numericEventValue = numericEventValue;
-        this.machineStartMessage = machineStartMessage;
     }
 
     public String getSessionId() {
@@ -26,6 +19,22 @@ public class KafkaMessage {
 
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
+    }
+
+    public String getMachineId() {
+        return machineId;
+    }
+
+    public void setMachineId(String machineId) {
+        this.machineId = machineId;
+    }
+
+    public Instant getStartAt() {
+        return startAt;
+    }
+
+    public void setStartAt(Instant startAt) {
+        this.startAt = startAt;
     }
 
     public Instant getEventAt() {
@@ -51,14 +60,4 @@ public class KafkaMessage {
     public void setNumericEventValue(double numericEventValue) {
         this.numericEventValue = numericEventValue;
     }
-
-    public MachineStartMessage getMachineStartMessage() {
-        return machineStartMessage;
-    }
-
-    public void setMachineStartMessage(MachineStartMessage machineStartMessage) {
-        this.machineStartMessage = machineStartMessage;
-    }
 }
-
-
